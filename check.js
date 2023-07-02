@@ -3,4 +3,4 @@
 require('dotenv').config();
 
 console.log("Check " + process.env.BUILD)
-process.exit(0)
+process.exit(1)
