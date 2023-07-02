@@ -20,7 +20,7 @@ jobs:
     - name: Run Playwright tests
       env: 
         TOKEN1: ${{ secrets.TOKEN1 }}
-        BUILD: ${{ format('{0} {1}', 'Build ', github.run_number) }}}
+        BUILD: ${{ format('{0} {1}', 'Build ', github.run_number) }}
       run: npx playwright test
     - uses: actions/upload-artifact@v3
       if: always()
