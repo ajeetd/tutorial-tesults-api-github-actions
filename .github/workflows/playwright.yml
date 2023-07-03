@@ -19,7 +19,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       env: 
-        TOKEN1: ${{ secrets.TOKEN1 }}
+        TARGET1_TOKEN: ${{ secrets.TARGET1_TOKEN }}
         BUILD: ${{ format('{0} {1}', 'Build ', github.run_number) }}
       run: npx playwright test
     - uses: actions/upload-artifact@v3
@@ -30,6 +30,8 @@ jobs:
         retention-days: 30
     - name: Check
       env: 
+        API_TOKEN: ${{ secrets.API_TOKEN }}
+        TARGET1_ID: ${{ secrets.TARGET1_ID }}
         BUILD: ${{ format('{0} {1}', 'Build ', github.run_number) }}
       run: npm run check
       

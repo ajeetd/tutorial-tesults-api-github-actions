@@ -21,7 +21,7 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['playwright-tesults-reporter', {'tesults-target': process.env.TOKEN1, "tesults-build-name": process.env.BUILD, "tesults-build-result": "pass"}]],
+  reporter: [['playwright-tesults-reporter', {'tesults-target': process.env.TARGET1_TOKEN, "tesults-build-name": process.env.BUILD, "tesults-build-result": "pass"}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
