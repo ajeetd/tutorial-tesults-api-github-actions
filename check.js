@@ -6,7 +6,7 @@ console.log("Check results for build: " + process.env.BUILD)
 
 const options = {
     hostname: 'www.tesults.com',
-    path: '/api/results?target=' + process.env.TARGET1_ID + '&build=' + process.env.BUILD,
+    path: encodeURI('/api/results?target=' + process.env.TARGET1_ID + '&build=' + process.env.BUILD),
     headers: {
         Authorization: 'Bearer ' + process.env.API_TOKEN
     }
