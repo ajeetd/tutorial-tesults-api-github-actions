@@ -20,6 +20,7 @@ https.get(options, (response) => {
         try {
             const resultObject = JSON.parse(result)
             const run = resultObject.data.results.runs[0]
+            console.log("Results url: " + run.run_url)
             if (run.pass !== run.total) {
                 console.log(run.pass + " tests passed out of " + run.total)
                 process.exit(1)
