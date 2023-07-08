@@ -30,7 +30,7 @@ jobs:
         retention-days: 30
     - name: Check
       id: check
-      uses: tesults/tesults-api-results-check@v1.0
+      uses: tesults/tesults-api-results-check@1.0
       with:
         target: ${{ secrets.TARGET1_ID }}
         build: ${{ format('{0} {1}', 'Build ', github.run_number) }}
