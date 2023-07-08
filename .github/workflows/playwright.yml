@@ -29,9 +29,19 @@ jobs:
         path: playwright-report/
         retention-days: 30
     - name: Check
-      env: 
-        API_TOKEN: ${{ secrets.API_TOKEN }}
-        TARGET1_ID: ${{ secrets.TARGET1_ID }}
-        BUILD: ${{ format('{0} {1}', 'Build ', github.run_number) }}
-      run: npm run check
+      id: check
+      uses: tesults/tesults-api-results-check@v1.0
+      with:
+        target: ${{ secrets.TARGET1_ID }}
+        build: ${{ format('{0} {1}', 'Build ', github.run_number) }}
+        api_token: ${{ secrets.API_TOKEN }} 
+      # Use the output from the `Check` step
+    - name: Get the number of passes and total
+      run: echo "${{ steps.check.outputs.pass }} pass out of ${{ steps.check.outputs.total }} total"
+    #- name: Check
+    #  env: 
+    #    API_TOKEN: ${{ secrets.API_TOKEN }}
+    #    TARGET1_ID: ${{ secrets.TARGET1_ID }}
+    #    BUILD: ${{ format('{0} {1}', 'Build ', github.run_number) }}
+    #  run: npm run check
       
